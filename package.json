@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "[![Actions Status](https://github.com/Tatyana1204/frontend-project-44/actions/workflows/hexlet-check.yml/badge.svg)](https://github.com/Tatyana1204/frontend-project-44/actions)",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -19,5 +19,11 @@
   "bugs": {
     "url": "https://github.com/Tatyana1204/frontend-project-44/issues"
   },
-  "homepage": "https://github.com/Tatyana1204/frontend-project-44#readme"
+  "homepage": "https://github.com/Tatyana1204/frontend-project-44#readme",
+  "dependencies": {
+    "ci": "^2.3.0",
+    "gulp-imagemin": "^7.1.0",
+    "npm": "^10.4.0",
+    "readline-sync": "^1.4.10"
+  }
 }
