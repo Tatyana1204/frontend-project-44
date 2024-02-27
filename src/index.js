@@ -1,20 +1,15 @@
 import readlineSync from 'readline-sync'; 
-import getUserName from './cli.js';
-import sample from './index.js';
-
+import getUserName from './cli.js';;
+const sample = (random, correctAnswer) => {
 console.log("Welcome to the Brain Games!");
-let user = getUserName();
-const isEven = () => {
-const number = Math.floor(Math.random() * 101); 
+let user = getUserName()
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
 let answer = '';
 let iter = 3;
 let isCorrect = true;
 while((isCorrect) && (iter > 0)){
-    const number = Math.floor(Math.random() * 101); 
-    console.log('Question: '+ number);
+    console.log('Question: '+ random);
     answer = readlineSync.question('Your answer: ');
-    const correctAnswer = (number %2 === 0)? 'yes':'no';
     if(answer.toLowerCase() === correctAnswer){
         console.log('Correct!');
             iter--;
@@ -29,4 +24,4 @@ while((isCorrect) && (iter > 0)){
 console.log("Congratulations, " + user);
 };
 
-export default isEven;
+export default sample;
