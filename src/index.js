@@ -1,27 +1,31 @@
-import readlineSync from 'readline-sync'; 
-import getUserName from './cli.js';;
-const sample = (random, correctAnswer) => {
+#!/usr/bin/env node
+import getUserName from './cli.js';
+
 console.log("Welcome to the Brain Games!");
-let user = getUserName()
-console.log('Answer "yes" if the number is even, otherwise answer "no".');
-let answer = '';
-let iter = 3;
-let isCorrect = true;
-while((isCorrect) && (iter > 0)){
-    console.log('Question: '+ random);
-    answer = readlineSync.question('Your answer: ');
-    if(answer.toLowerCase() === correctAnswer){
-        console.log('Correct!');
+let user = getUserName();
+
+const playGame = (startGame) => {
+    let iter = 3;
+    let isGameOver = false;
+
+    while (!isGameOver && iter > 0) {
+        
+        const {answer, userAnswer} = startGame();
+        if (userAnswer === answer) {
+            console.log("Correct!");
+
             iter--;
+        } else {
+            const gameOverMessage = `"${userAnswer}" is wrong answer ;(. Correct answer was "${answer}". Let's try again, ${user})`;
+
+            console.log(gameOverMessage);
+
+            isGameOver = false;
+            return isGameOver;
         }
-    else {
-        isCorrect = false;
-        const sadMessage = `"${answer}" is wrong answer ;(. Correct answer was "${correctAnswer}". Let's try again, ${user})`;
-        console.log(sadMessage);
-        return false;
-        }
-}
-console.log("Congratulations, " + user);
+    }
+    console.log("Congratulations, " + user);
 };
 
-export default sample;
+export default playGame;
+
